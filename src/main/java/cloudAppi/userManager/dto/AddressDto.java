@@ -12,6 +12,19 @@ public class AddressDto {
     private String country;
     private String zip;
 
+    public AddressDto(){
+
+    }
+
+    public AddressDto(Integer id, String street, String state, String city, String country, String zip) {
+        this.id = id;
+        this.street = street;
+        this.state = state;
+        this.city = city;
+        this.country = country;
+        this.zip = zip;
+    }
+
     public Integer getId() {
         return id;
     }

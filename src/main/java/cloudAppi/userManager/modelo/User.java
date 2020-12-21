@@ -11,13 +11,13 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Entity
+@SequenceGenerator(name="seq", initialValue=50)
 public class User implements Serializable {
     private static final DateTimeFormatter formatter =
             DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
     @Id
-    @GeneratedValue (strategy=GenerationType.SEQUENCE)
-    @SequenceGenerator(name="user_id", initialValue=101)
+    @GeneratedValue (strategy=GenerationType.SEQUENCE, generator = "seq")
     private Integer id;
 
     @Column

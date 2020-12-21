@@ -23,6 +23,18 @@ public class UserDto {
     private String birthDate;
     private AddressDto address;
 
+    public UserDto(){
+
+    }
+
+    public UserDto(Integer id, String name, String email, String birthDate, AddressDto address) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.birthDate = birthDate;
+        this.address = address;
+    }
+
     public LocalDateTime getSubmissionDateConverted(String timezone) throws ParseException {
         return (LocalDateTime) formatter.parse(birthDate);
     }

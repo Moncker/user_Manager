@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
 
+import java.beans.DefaultPersistenceDelegate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,8 +21,13 @@ public class UserService {
 
     }
 
-    public User createUser(User user){return userRepository.save(user);}
+    public User createUser(User user){
+        System.out.println("User: " + user.toString());
+        return userRepository.save(user);
+    }
+
     public List<User> getAllUsers() {
+        System.out.println("UserRepository: " + userRepository);
         Iterable<User> users = userRepository.findAll();
         List<User> finUsers = new ArrayList<User>();
 
