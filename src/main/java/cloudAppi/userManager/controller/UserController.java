@@ -114,6 +114,7 @@ public class UserController {
 
 
     private UserDto convertToDto(User user) {
+        if (user == null) return new UserDto();
         UserDto userDto = modelMapper.map(user, UserDto.class);
         try {
             userDto.setSubmissionDate(user.getBirthDate());
@@ -136,6 +137,10 @@ public class UserController {
             post.setRedditID(oldPost.getRedditID());
             post.setSent(oldPost.isSent());
         }*/
+    }
+
+    public void setService(UserService userService){
+        this.userService = userService;
     }
 
 }
